@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Update User</title>
+</head>
+<body>
+	<h2>Update User</h2>
+	<form action="../users/update" method="POST">
+		<input type="hidden" name="id" th:value="${USER_DETAIL.id}" />
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>Name</th>
+					<td><input type="text" name="name" required="required"
+						autofocus="autofocus" th:value="${USER_DETAIL.name}" /></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="email" required="required" th:value="${USER_DETAIL.email}" />
+					</td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="password" required="required" th:value="${USER_DETAIL.password}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="submit">Submit</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<a href="../users/list">List Users</a>
+</body>
+</html>

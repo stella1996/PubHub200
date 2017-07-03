@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>User List</title>
+</head>
+<body>
+	<h2>List of Users</h2>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Sno</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Active</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user : ${USER_LIST}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.name}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.active}"></td>
+				<td><a href="" th:href="@{/users/edit(id=${user.id})}">Edit</a> </td>
+				<td th:if="!${user.active}"><a href="" th:href="@{/users/activate(id=${user.id})}">Activate</a> </td>
+				<td th:if="${user.active}" ><a href="" th:href="@{/users/deactivate(id=${user.id})}">Deactivate</a> </td>
+				<td><a href="" th:href="@{/users/delete(id=${user.id})}">Delete</a> </td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="../users/create">Add User</a>
+</body>
+</html>
